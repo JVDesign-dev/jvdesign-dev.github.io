@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Policy</title>
+  <style>
+    ::-webkit-scrollbar-track {
+      display: none;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    ::-webkit-scrollbar-thumb {
+      display: none;
+    }  
+    body {
+      font-family: Arial;
+      margin-top: 20px;
+      padding: 20px;
+      text-align: left;
+      margin-left: 50px;
+      background: #fff;
+      font-size: 22px;
+    }
+
+    h1 {
+      font-size: 45px;
+    font-weight: bold;
+    }
+
+    button {
+      font-size: 24px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    iframe {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cookie Policy</h1>
+  <p>This website uses cookies for essential purposes only.</p>
+  <p>Following cookies are requested to be used:
+      <ul><b>acceptCookies</b> <i>true</i>: Stores, you confirmed the cookie policies</ul>
+      <ul><b>date</b> <i><span id="date">undefined</span></i>: Stores the date in order to deliver the functionality of the news feed</ul>
+  <p>By clicking "Confirm," you agree to the use of cookies on this site.</p>
+  <p>By clicking "Decline," the website may not work correctly</p>
+
+  <button id="confirm-btn" onclick="accept()">Confirm</button>
+  <button id="decline-btn" onclick="decline()">Decline</button>
+</body>
+<script src="index.js"></script>
+</html>
