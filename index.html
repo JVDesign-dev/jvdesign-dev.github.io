@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>JVDesign</title>
+		<meta charset="utf-8"/>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <meta nosnippet>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link rel="stylesheet" media='all' href="style.css">
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <script src="index.js"></script>
+	</head>
+	<body>
+        <div id="content">
+        <div id="maindiv">
+            <p class="heading">JVDesign</p>
+            I'm a solo web developer, mainly working with JavaScript. <br>
+            Why? I just love, how simple and versatile it is. Nearly everything - from resource loading to animating, 
+            from interactivity to data management - can be done with JS.<br>
+            Under this domain, you can see my projects in action. 
+            You can go to <a href="https://github.com/jvdesignbavaria">my GitHub</a> to take a look under their hood.
+        </div>
+        
+        <div id="updates">
+                <p class="heading">11.10.2024</p>
+                Welcome to my site - JVDesign. <br>
+                This is the first post here, <br>
+                its intention's clear: <br>
+                It provides some content <br>
+                without being nonsense. <br>
+                It will not stay the last and only one, <br>
+                very soon - I hope - more posts will come.<br>
+                So stay tuned and see, what I already got<br>
+                and I will end this poem with a dot.
+        </div>
+        <div class="sidediv" id="sidecolor"></div>
+        <div class="sidediv" id="sidebar">
+            <img class="game" title="Gradia" id="Ghosteez" src="/gradia/app_icon.png" onClick="window.open('/gradia','_blank')"/>
+        </div>
+        <div class="sidediv" id="sideright">
+            <button id="menubut"onclick="menu()"><img src="menuicon.png" id="menuicon"/></button>
+            <div id="menu">
+                <img id="mail" src="mail.png" onclick="window.open('mailto:jvdesign@mail.de')"title="mail"/>
+                <img src="updates.png" onclick="updates()" id="updateicon" title="updates"/>
+                <div id="news">
+                    <span id="newscount"></span>
+                </div>
+            </div>
+        </div>  
+        </div>
+	</body>
+    <footer>
+        <script src="/cookie/index.js"></script>
+    </footer>
+</html>
