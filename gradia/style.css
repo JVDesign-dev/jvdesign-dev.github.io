@@ -1,6 +1,7 @@
 :root {
     --main-color: #fff;
     --editing: none;
+    font-size: 25px;
 }
 
 *[onClick] {
@@ -10,8 +11,7 @@
 html {
     color: var(--main-color);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 25px;
-    -webkit-tap-highlight-color: #0000;
+    -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     user-select: none;
 }
