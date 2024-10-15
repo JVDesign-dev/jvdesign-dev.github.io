@@ -24,6 +24,7 @@ self.addEventListener('install', (event) => {
             'favicon.ico'
         ])
     )
+    self.skipWaiting();
     sendMessage({from:'SW', version:CACHE_NAME, info:INFO});
 })
 
