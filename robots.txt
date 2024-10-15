@@ -4,4 +4,4 @@ Disallow: /img
 Disallow: /gradia/background.jpg
 Disallow: /js
 Disallow: /errors
-Sitemap: /sitemap.xml
+Sitemap: https://jvdesign.is-a.dev/sitemap.xml
