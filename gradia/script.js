@@ -1,4 +1,4 @@
-const buildVersion = 'Beta 1.0.5'
+const buildVersion = 'Beta 1.0.6'
 
 let subjects = [];
 
@@ -238,15 +238,21 @@ function loadSubjects() {
                         newGrdDiv.appendChild(toolDiv);
                         newGrdDiv.appendChild(newGrd);
                         document.getElementById(activeSession + subject.name + count + count2).appendChild(newGrdDiv);
-                        if(settings.showMultiplier) {
-                            newGrd = document.createElement('td');
-                            newGrd.textContent = element.weight + 'x';
-                            document.getElementById(activeSession + subject.name + count + count2).appendChild(newGrd);
-                        }
+
+                        let gradeDiv = document.createElement('div');
+                        gradeDiv.classList = 'gradeDiv';
 
                         newGrd = document.createElement('td');
                         newGrd.textContent = element.grade;
-                        document.getElementById(activeSession + subject.name + count + count2).appendChild(newGrd);
+                        gradeDiv.appendChild(newGrd);
+
+                        if(settings.showMultiplier) {
+                            newGrd = document.createElement('td');
+                            newGrd.textContent = element.weight + 'x';
+                            gradeDiv.appendChild(newGrd);
+                        }
+
+                        document.getElementById(activeSession + subject.name + count + count2).appendChild(gradeDiv);
                     });
                 }
                 else {
@@ -269,15 +275,20 @@ function loadSubjects() {
                     newGrdDiv.appendChild(newGrd);
                     document.getElementById(activeSession + subject.name + count).appendChild(newGrdDiv);
 
-                    if(settings.showMultiplier) {
-                        newGrd = document.createElement('td');
-                        newGrd.textContent = gradesArray.weight + 'x';
-                        document.getElementById(activeSession + subject.name + count).appendChild(newGrd);
-                    }
+                    let gradeDiv = document.createElement('div');
+                    gradeDiv.classList = 'gradeDiv';
 
                     newGrd = document.createElement('td');
                     newGrd.textContent = gradesArray.grade;
-                    document.getElementById(activeSession + subject.name + count).appendChild(newGrd);
+                    gradeDiv.appendChild(newGrd);
+
+                    if(settings.showMultiplier) {
+                        newGrd = document.createElement('td');
+                        newGrd.textContent = gradesArray.weight + 'x';
+                        gradeDiv.appendChild(newGrd);
+                    }
+
+                    document.getElementById(activeSession + subject.name + count).appendChild(gradeDiv);
                 }
             });
         });
@@ -384,6 +395,10 @@ function calculateAvgFromArray(array) {
 }
 
 function save() {
+    if(!(document.getElementById('settings').style.display == 'none')) { //only save settings and don't reload whole UI
+        saveSettings();
+        return;
+    }
     let addVar;
     if(document.getElementById('addVar').textContent) addVar = JSON.parse(document.getElementById('addVar').textContent);
     let name;
@@ -433,7 +448,7 @@ function save() {
             else {
                 subjects.find(element => element.name === activeSession).grades.find(element => element.name === addVar[0]).grades[addVar[1]] = newGrade;
             }
-
+            toggleEditing();
             break;
         case 'editSession':
             name = document.getElementById('addSess').value;
@@ -451,6 +466,7 @@ function save() {
             }
 
             subjects[addVar].name = name;
+            toggleEditing();
             break;
         case 'editSubject':
             name = document.getElementById('focusedSubj').value;
@@ -468,6 +484,8 @@ function save() {
                 return;
             }*/
             subjects.find(session => session.name == activeSession).grades[addVar].name = name;
+            toggleEditing();
+            break;
         default:
             break;
     }
@@ -762,7 +780,6 @@ function changeLang(lang) {
     switch(lang) {
         case 'de':
             document.querySelector("#multiplierBox span").textContent ="Gewichtungen";
-            document.getElementById('saveButton').value = 'Speichern';
             document.querySelector("label[for='downloadButton']").textContent = 'Datei herunterladen';
             document.querySelector("label[for='fileInput']").textContent = 'Datei hochladen';
             document.querySelector("label[for='deleteButton']").textContent = 'Daten löschen';
@@ -783,7 +800,6 @@ function changeLang(lang) {
             break;
         case 'en':
             document.querySelector("#multiplierBox span").textContent ="Weights";
-            document.getElementById('saveButton').value = 'Save';
             document.querySelector("label[for='downloadButton']").textContent = 'Download file';
             document.querySelector("label[for='fileInput']").textContent = 'Upload file';
             document.querySelector("label[for='deleteButton']").textContent = 'Delete data';
@@ -1104,7 +1120,7 @@ function handleUpdate(updateData) {
     })}
     ${info.release}`)
 
-    document.getElementById('updateDate').textContent = updateData.release;
+    document.getElementById('updateDate').textContent = info.release.toLocaleDateString(undefined, {year: 'numeric', month: '2-digit', day: '2-digit'});
     document.getElementById('updateVersion').textContent = updateData.version;
     output += text(info.description);
     if(info.features) {
@@ -1126,6 +1142,11 @@ window.onload = () => {
 };
 
 function init() {
+    document.querySelectorAll('.autosave').forEach(element => {
+        element.addEventListener('input', (event) => {
+            save();
+        })
+    });
     document.getElementById('table').addEventListener('click', async function(e) {
         const target = e.target.closest('tr');
         const icon = e.target.closest('i');
@@ -1201,6 +1222,7 @@ function init() {
             if(!(await getConfirm(`Really delete?`))) return;
             dir.splice(subjectsIndex, 1)
             setLocalStorage(subjects, 'subjects');
+            toggleEditing();
             if(scene == 'sessions') {
                 loadSession();
                 return;

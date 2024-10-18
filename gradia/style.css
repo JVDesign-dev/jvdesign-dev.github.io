@@ -168,6 +168,7 @@ input, select {
 
 #updateDate {
     font-size: 1rem;
+    font-weight: 500;
     margin: 15px 0 5px 0;
 }
 
@@ -270,6 +271,14 @@ input[type=checkbox] {
     display: flex;
     justify-content: left;
     align-items: center;
+}
+
+#table tr .gradeDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    min-width: 3rem;
 }
 
 #table tr div i {

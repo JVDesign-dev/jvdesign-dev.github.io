@@ -1,12 +1,12 @@
-const CACHE_NAME = 'Beta 1.0.5';
+const CACHE_NAME = 'Beta 1.0.6';
 const INFO = {
     get description() {
         return {de:`Dieses Update enthält Fehlerbehebungen${this.features.length < 1 ? `.`:` und führt diese neuen Features ein:`}`, en:`This update provides bug fixes${this.features.length < 1 ? `.`:` and introduces these new features:`}`}
     },
     features: [
-        //{name:{de:`Offline Modus`, en:`Offline mode`}, description:{de:`Ermöglicht die Offline-Verwendung der App mit all ihren Funktionen`, en:`Allows offline usage of the app while all functions stay usable`}},
+        {name:{de:`Automatische Einstellungs-Speicherung`, en:`Auto-saving settings`}, description:{de:`Änderungen an den Einstellungen werden direkt gespeichert`, en:`Changes to the settings are saved automatically`}},
     ],
-    release: '11.10.2024'
+    release: new Date(Date.UTC(2024, 10, 18))
 };
 
 async function resourcesToCache(resources) {

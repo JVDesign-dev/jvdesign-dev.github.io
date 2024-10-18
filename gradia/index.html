@@ -94,7 +94,7 @@
         </div>
 
         <div id="settings">
-            <select name="language" id="lang">
+            <select class="autosave" name="language" id="lang">
                 <option value="de">Deutsch</option>
                 <option value="en">English</option>
             </select>
@@ -102,25 +102,24 @@
             <div class="checkboxbox between" id="multiplierBox">
                 <span>Gewichtungen</span>
                 <label class="switch">
-                    <input type="checkbox" id="showMultipliers">
+                    <input class="autosave" type="checkbox" id="showMultipliers">
                     <span class="slider"></span>
                 </label>
             </div>
             <div class="checkboxbox between" id="darkmodeBox">
                 <span>Darkmode</span>
                 <label class="switch">
-                    <input type="checkbox" id="darkmode">
+                    <input class="autosave" type="checkbox" id="darkmode">
                     <span class="slider"></span>
                 </label>
             </div>
             <div class="checkboxbox between" id="offlineBox">
                 <span>Offline</span>
                 <label class="switch">
-                    <input type="checkbox" id="offline">
+                    <input class="autosave" type="checkbox" id="offline">
                     <span class="slider"></span>
                 </label>
             </div>
-            <input type="button" onClick="saveSettings()" id="saveButton" value="Speichern"/>
             <div class="labelBox">
                 <div class="innerLabelBox"><input type="button" onClick="downloadTxtFile(subjects, 'gradia_save')" id="downloadButton" value="Daten herunterladen"/><label for="downloadButton">Datei herunterladen</label></div>
                 <div class="innerLabelBox"><input type="file" id="fileInput" accept=".txt,.json,.js"><label for="fileInput">Datei hochladen</label></div>
