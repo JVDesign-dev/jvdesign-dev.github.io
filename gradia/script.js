@@ -1,4 +1,4 @@
-const buildVersion = 'Beta 1.0.6'
+const buildVersion = 'Beta 1.0.7'
 
 let subjects = [];
 
@@ -1109,6 +1109,7 @@ async function registerSW() {
 }
 
 function handleUpdate(updateData) {
+    if(updateData.version == buildVersion) return;
     document.getElementById('updateInfo').style.display = 'block';
     const info = updateData.info;
     let output = ``;

@@ -278,7 +278,7 @@ input[type=checkbox] {
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
-    min-width: 3rem;
+    gap: 1rem;
 }
 
 #table tr div i {
