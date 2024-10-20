@@ -1,4 +1,4 @@
-const buildVersion = 'Beta 1.0.8'
+const buildVersion = 'Beta 1.0.9'
 
 let subjects = [];
 
@@ -1412,8 +1412,9 @@ function init() {
             de:`Gradia speichert deine Daten lokal im Browser. <br> Um einen Datenverlust im Falle der Löschung der Browser-Daten zu verhindern, solltest du deine Daten regelmäßig in den Einstellungen herunterladen.`, 
             en:`Gradia saves your data locally in your browser. <br> To prevent data loss in case of a deletion of your browser's data, you should download your data from time to time in the settings.`
         }));
-        sendLogData('new_user');
+        
         if(navigator.standalone) sendLogData('standalone');
+        else sendLogData('new_user');
     }
     showDownloadMessage();
 

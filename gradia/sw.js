@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Beta 1.0.8';
+const CACHE_NAME = 'Beta 1.0.9';
 const INFO = {
     get description() {
         return {de:`Dieses Update enthält Fehlerbehebungen${this.features.length < 1 ? `.`:` und führt diese neuen Features ein:`}`, en:`This update provides bug fixes${this.features.length < 1 ? `.`:` and introduces these new features:`}`}
@@ -29,19 +29,23 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('activate', (event) => {
-    sendLogData('updated');
     event.waitUntil(
         caches.keys().then(cacheNames => {
+            // Check for old caches
+            const oldCaches = cacheNames.filter(cacheName => cacheName !== CACHE_NAME);
+            if (oldCaches.length > 0) {
+                sendLogData('updated'); // Send log data only if there are old caches
+            }
+
+            // Delete old caches
             return Promise.all(
-                cacheNames.map(cacheName => {
-                    //delete old caches
-                    if(cacheName !== CACHE_NAME) {
-                        return caches.delete(cacheName);
-                    }
-                }))
+                oldCaches.map(cacheName => {
+                    return caches.delete(cacheName);
+                })
+            );
         })
-    )
-})
+    );
+});
 
 function sendMessage(message) {
     const channel = new BroadcastChannel('sw_channel');
