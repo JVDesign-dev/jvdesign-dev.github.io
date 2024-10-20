@@ -84,4 +84,4 @@ function decline() {
 }
 
 setAccept();
-document.getElementById("date").innerHTML = new Date();
+document.getElementById("date").textContent = new Date();
