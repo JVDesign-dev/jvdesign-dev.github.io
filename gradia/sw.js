@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Beta 1.0.9';
+const CACHE_NAME = 'Beta 1.0.10';
 const INFO = {
     get description() {
         return {de:`Dieses Update enthält Fehlerbehebungen${this.features.length < 1 ? `.`:` und führt diese neuen Features ein:`}`, en:`This update provides bug fixes${this.features.length < 1 ? `.`:` and introduces these new features:`}`}
@@ -6,7 +6,7 @@ const INFO = {
     features: [
         {name:{de:`Automatische Einstellungs-Speicherung`, en:`Auto-saving settings`}, description:{de:`Änderungen an den Einstellungen werden direkt gespeichert`, en:`Changes to the settings are saved automatically`}},
     ],
-    release: new Date(Date.UTC(2024, 10, 18))
+    release: new Date(Date.UTC(2024, 10, 20))
 };
 
 async function resourcesToCache(resources) {
@@ -77,7 +77,7 @@ self.addEventListener('fetch', (event) => {
 async function sendLogData(logType) {
     const versionData = {
         app_name: "gradia",
-        version: buildVersion,
+        version: CACHE_NAME,
         new_users: 0,
         standalone_apps: 0,
         updated_apps: 0
