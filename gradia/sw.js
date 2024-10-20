@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Beta 1.0.10';
+const CACHE_NAME = 'Build 1.0';
 const INFO = {
     get description() {
         return {de:`Dieses Update enthält Fehlerbehebungen${this.features.length < 1 ? `.`:` und führt diese neuen Features ein:`}`, en:`This update provides bug fixes${this.features.length < 1 ? `.`:` and introduces these new features:`}`}

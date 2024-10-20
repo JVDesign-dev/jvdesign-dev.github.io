@@ -1,4 +1,4 @@
-const buildVersion = 'Beta 1.0.10'
+const buildVersion = 'Build 1.0'
 
 let subjects = [];
 
