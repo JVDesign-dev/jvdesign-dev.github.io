@@ -164,6 +164,7 @@ body {
 }
 #news {
     position: absolute;
+    display: none;
     border-radius: 50%;
     width: 20px;
     background-color: #ff0000;

@@ -1,6 +1,6 @@
 const updateMessages = [
     {
-        date: new Date(Date.UTC(2024,10,20)),
+        date: new Date('2024-10-20'),
         title: `Gradia - the modern grade calculator`,
         content: `Today I was finally able to release my first app - Gradia. 
                 I've been working on it for a long time and now I can finally say, I've successfully managed to include every feature for it to fit my needs. 
@@ -13,7 +13,7 @@ const updateMessages = [
                 input your grades and never lose track of your school performance again.`
     },
     {
-        date: new Date(Date.UTC(2024, 10, 11)),
+        date: new Date('2024-10-11'),
         title: `Welcome to JVDesign`,
         content: `This is the first post here, <br>its intention's clear: <br>It provides some content <br>without being nonsense. <br>It will not stay the last and only one, <br>very soon - I hope - more posts will come.<br>So stay tuned and see, what I already got<br>and I will end this poem with a dot.`
     }
@@ -27,11 +27,9 @@ window.onload = init();
 
 function init() {
     const newscount = calculateUnseenMessages();
-    if (newscount == 0) {
-        $("#news").hide();
-    }
-    else {
+    if (newscount !== 0) {
         news(newscount);
+        document.getElementById('news').style.display = 'block';
     }
 
     renderUpdates();
@@ -45,6 +43,7 @@ function updates() {
     }
     document.getElementById('maindiv').style.display = 'none';
     document.getElementById('updates').style.display = 'flex';
+    setCookie("date",new Date(),31);
 }
 
 function renderUpdates() {
@@ -68,9 +67,11 @@ function renderUpdates() {
 }
 
 function calculateUnseenMessages() {
-    const lastVisit = Date.parse(getCookie('date'));
+    const lastVisit = new Date(getCookie('date'));
     let unseenCounter = 0;
     updateMessages.forEach(message => {
         if(message.date > lastVisit) unseenCounter ++;
     });
+    console.log(unseenCounter);
+    return unseenCounter;
 }
