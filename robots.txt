@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /gradia
+Disallow: /cookie
 Disallow: /img
 Disallow: /gradia/background.jpg
 Disallow: /js
