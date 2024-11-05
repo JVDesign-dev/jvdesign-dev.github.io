@@ -85,7 +85,7 @@ function decline() {
 }
 
 function uiValues() {
-    document.getElementById('date').innerHTML = 'test';
+    document.getElementById('date').innerHTML = new Date();
 }
 
 function checkEnvironment() {
