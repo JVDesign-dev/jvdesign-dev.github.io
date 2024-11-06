@@ -19,16 +19,16 @@ const updateMessages = [
     }
 ]
 
-function news(n) {
-    document.getElementById('newscount').textContent = n;
-}
-
 window.onload = init();
 
 function init() {
+    setNewsCounter():
+}
+
+function setNewsCounter() {
     const newscount = calculateUnseenMessages();
     if (newscount !== 0) {
-        news(newscount);
+        document.getElementById('newscount').textContent = newscount;
         document.getElementById('news').style.display = 'block';
     }
 
@@ -44,6 +44,7 @@ function updates() {
     document.getElementById('maindiv').style.display = 'none';
     document.getElementById('updates').style.display = 'flex';
     setCookie("date",new Date(),31);
+    setNewsCounter();
 }
 
 function renderUpdates() {
