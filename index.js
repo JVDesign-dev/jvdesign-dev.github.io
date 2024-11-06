@@ -49,6 +49,7 @@ function updates() {
 
 function renderUpdates() {
     const updatesDiv = document.getElementById('updates');
+    updatesDiv.innerHTML = '';
     updateMessages.forEach(message => {
         const messageDiv = document.createElement('div');
         const messageDate = document.createElement('h2');
