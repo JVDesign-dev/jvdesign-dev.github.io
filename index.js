@@ -22,7 +22,7 @@ const updateMessages = [
 window.onload = init();
 
 function init() {
-    setNewsCounter():
+    setNewsCounter();
 }
 
 function setNewsCounter() {
