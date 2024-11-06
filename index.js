@@ -31,6 +31,7 @@ function setNewsCounter() {
         document.getElementById('newscount').textContent = newscount;
         document.getElementById('news').style.display = 'block';
     }
+    else document.getElementById('news').style.display = 'none';
 
     renderUpdates();
 }
