@@ -182,3 +182,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+a {
+    text-decoration: none;
+    color: #1452be;
+    font-weight: bold;
+}

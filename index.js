@@ -1,5 +1,31 @@
 const updateMessages = [
     {
+        date: new Date('2025-07-10'),
+        title: `Gradia 1.1 – Update with new features`,
+        content: `Today marks the first major update of <a href="/gradia">Gradia</a> since its release. 
+                After a lot of internal improvements and smaller commits, the new version 1.1 is finally ready. 
+                It introduces several features that make managing your grades even more convenient and efficient:
+                <ul>
+                    <li>Partial data deletion: Settings and grades can now be removed independently</li>
+                    <li>Downloadable grade files in .grd/.grde format</li>
+                    <li>Version history: update information is now shown directly within the app</li>
+                    <li>Automatic table sorting for easier grade navigation</li>
+                </ul>
+                Along the way, I restructured the internal data handling — which also led to the creation of <a href="https://datamanager.js.org">datamanager.js</a>, 
+                which I recently released as a standalone module. All changes are bundled into this clean release. 
+                If you're already using Gradia, make sure to update and try out the new tools. 
+                If you haven’t tried it yet, there’s no better time to start: head over to <a href="/gradia">Gradia</a> and take control of your grades.`
+    },
+    {
+        date: new Date('2025-06-03'),
+        title: `Introducing datamanager.js`,
+        content: `While working on Gradia, I needed a consistent and reusable way to manage client-side data. 
+                That's how <a href="https://datamanager.js.org">datamanager.js</a> came to be.  
+                It quietly handles the full data flow of a web app — file uploads and downloads, localStorage interaction, and internal data integrity.  
+                No UI, no noise — just a small module doing what needs to be done.  
+                If you're building a JavaScript project and need a simple, reliable layer to manage persistent data, <a href="https://datamanager.js.org">give it a look</a>.`
+    },
+    {
         date: new Date('2024-10-20'),
         title: `Gradia - the modern grade calculator`,
         content: `Today I was finally able to release my first app - Gradia. 
